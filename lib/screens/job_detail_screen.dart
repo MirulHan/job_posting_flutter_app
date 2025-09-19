@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../models/job.dart';
 import '../controllers/theme_controller.dart';
 import '../widgets/primary_layout.dart';
+import 'job_application_screen.dart';
 
 class JobDetailScreen extends StatelessWidget {
   final Job job;
@@ -207,7 +208,9 @@ class JobDetailScreen extends StatelessWidget {
               width: double.infinity,
               height: 50,
               child: ElevatedButton.icon(
-                onPressed: job.isActive ? _showApplyDialog : null,
+                onPressed: job.isActive 
+                    ? () => Get.to(() => JobApplicationScreen(job: job))
+                    : null,
                 icon: const Icon(Icons.send),
                 label: Text(
                   job.isActive ? 'Apply Now' : 'Position Closed',
@@ -300,47 +303,6 @@ class JobDetailScreen extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-
-  void _showApplyDialog() {
-    Get.dialog(
-      AlertDialog(
-        title: const Text('Apply for Position'),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-                'Are you sure you want to apply for the ${job.title} position at ${job.company}?'),
-            const SizedBox(height: 16),
-            Text(
-              'Contact: ${job.contactEmail}',
-              style: const TextStyle(fontWeight: FontWeight.w600),
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Get.back(),
-            child: const Text('Cancel'),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Get.back();
-              Get.snackbar(
-                'Application Sent',
-                'Your application for ${job.title} has been sent to ${job.contactEmail}',
-                snackPosition: SnackPosition.BOTTOM,
-                backgroundColor: Colors.green[100],
-                colorText: Colors.green[800],
-                icon: const Icon(Icons.check_circle, color: Colors.green),
-              );
-            },
-            child: const Text('Apply'),
-          ),
-        ],
-      ),
     );
   }
 }

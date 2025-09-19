@@ -39,7 +39,6 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          // Floating theme toggle button in top-right corner
           Positioned(
             top: 50,
             right: 20,
