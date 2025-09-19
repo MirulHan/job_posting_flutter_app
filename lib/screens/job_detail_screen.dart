@@ -208,8 +208,8 @@ class JobDetailScreen extends StatelessWidget {
               width: double.infinity,
               height: 50,
               child: ElevatedButton.icon(
-                onPressed: job.isActive 
-                    ? () => Get.to(() => JobApplicationScreen(job: job))
+                onPressed: job.isActive
+                    ? () => Get.off(() => JobApplicationScreen(job: job))
                     : null,
                 icon: const Icon(Icons.send),
                 label: Text(

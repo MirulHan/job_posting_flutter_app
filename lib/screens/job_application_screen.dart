@@ -366,7 +366,7 @@ class _JobApplicationScreenState extends State<JobApplicationScreen> {
         duration: const Duration(seconds: 3),
       );
 
-      Get.offAll(() => const JobListScreen());
+      Get.off(() => const JobListScreen());
     }
   }
 }
