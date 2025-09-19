@@ -18,10 +18,10 @@ class JobListScreen extends StatelessWidget {
       title: 'Available Jobs',
       actions: [
         Obx(() => IconButton(
-          onPressed: () => themeController.toggleTheme(),
-          icon: Icon(themeController.themeIcon),
-          tooltip: themeController.themeText,
-        )),
+              onPressed: () => themeController.toggleTheme(),
+              icon: Icon(themeController.themeIcon),
+              tooltip: themeController.themeText,
+            )),
       ],
       body: Obx(() {
         if (jobController.isLoading.value && jobController.jobs.isEmpty) {
@@ -136,7 +136,6 @@ class JobCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Job Title and Company
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -146,23 +145,26 @@ class JobCard extends StatelessWidget {
                       children: [
                         Text(
                           job.title,
-                          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style:
+                              Theme.of(context).textTheme.titleLarge?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                  ),
                         ),
                         const SizedBox(height: 4),
                         Text(
                           job.company,
-                          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                            color: Colors.blue[600],
-                            fontWeight: FontWeight.w600,
-                          ),
+                          style:
+                              Theme.of(context).textTheme.titleMedium?.copyWith(
+                                    color: Colors.blue[600],
+                                    fontWeight: FontWeight.w600,
+                                  ),
                         ),
                       ],
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     decoration: BoxDecoration(
                       color: Colors.green[100],
                       borderRadius: BorderRadius.circular(16),
@@ -179,8 +181,6 @@ class JobCard extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 12),
-              
-              // Location and Salary
               Row(
                 children: [
                   Icon(
@@ -204,14 +204,14 @@ class JobCard extends StatelessWidget {
                   Text(
                     job.formattedSalary,
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.green[600],
-                    ),
+                          fontWeight: FontWeight.w600,
+                          color: Colors.green[600],
+                        ),
                   ),
                 ],
               ),
               const SizedBox(height: 12),
-              
+
               // Description (truncated)
               Text(
                 job.description,
@@ -220,31 +220,35 @@ class JobCard extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
               const SizedBox(height: 12),
-              
+
               // Skills
               if (job.skills.isNotEmpty) ...[
                 Wrap(
                   spacing: 8,
                   runSpacing: 4,
-                  children: job.skills.take(3).map((skill) => Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                    decoration: BoxDecoration(
-                      color: Colors.blue[100],
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Text(
-                      skill,
-                      style: TextStyle(
-                        color: Colors.blue[800],
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  )).toList(),
+                  children: job.skills
+                      .take(3)
+                      .map((skill) => Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8, vertical: 4),
+                            decoration: BoxDecoration(
+                              color: Colors.blue[100],
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Text(
+                              skill,
+                              style: TextStyle(
+                                color: Colors.blue[800],
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ))
+                      .toList(),
                 ),
                 const SizedBox(height: 12),
               ],
-              
+
               // Deadline
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -254,7 +258,8 @@ class JobCard extends StatelessWidget {
                       Icon(
                         Icons.calendar_today,
                         size: 14,
-                        color: Theme.of(context).iconTheme.color?.withOpacity(0.7),
+                        color:
+                            Theme.of(context).iconTheme.color?.withOpacity(0.7),
                       ),
                       const SizedBox(width: 4),
                       Text(

@@ -69,7 +69,7 @@ class Job {
 
   String get formattedSalary {
     final salaryValue = double.tryParse(salary) ?? 0.0;
-    return '\$${salaryValue.toStringAsFixed(0)}';
+    return salaryValue.toStringAsFixed(0);
   }
 
   String get formattedDeadline {
