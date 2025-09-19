@@ -14,26 +14,17 @@ A comprehensive Flutter application for browsing and applying to job postings. T
 
 ## Screenshots
 
-> **Add your app screenshots here!**
-> 
-> You can add screenshots by:
-> 1. Creating a `screenshots/` folder in the project root
-> 2. Adding your screenshot images (PNG/JPG format)
-> 3. Updating this section with image references like:
-> 
-> ```markdown
-> ### Home Screen
-> ![Home Screen](screenshots/home_screen.png)
-> 
-> ### Job List
-> ![Job List](screenshots/job_list.png)
-> 
-> ### Job Details
-> ![Job Details](screenshots/job_details.png)
-> 
-> ### Application Form
-> ![Application Form](screenshots/application_form.png)
-> ```
+### Home Screen
+![Home Screen](screenshots/home_screen.png)
+
+### Job List
+![Job List](screenshots/job_list.png)
+
+### Job Details
+![Job Details](screenshots/job_details.png)
+
+### Application Form
+![Application Form](screenshots/application_form.png)
 
 ## Prerequisites
 
